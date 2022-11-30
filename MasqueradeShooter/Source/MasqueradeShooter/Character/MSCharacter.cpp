@@ -72,3 +72,19 @@ void AMSCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 }
+
+
+FCollisionQueryParams AMSCharacter::GetIgnoreCharacterParams() const
+{
+	FCollisionQueryParams Params;
+
+	TArray<AActor*> CharacterChildren;
+	GetAllChildActors(CharacterChildren);
+
+	GetAllChildActors(CharacterChildren);
+	Params.AddIgnoredActors(CharacterChildren);
+	Params.AddIgnoredActor(this);
+
+	return Params;
+
+}

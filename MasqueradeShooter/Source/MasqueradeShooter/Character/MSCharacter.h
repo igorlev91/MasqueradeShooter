@@ -32,4 +32,10 @@ private:
 	class UCameraComponent* FollowCamera;
 
 public:
+	FCollisionQueryParams GetIgnoreCharacterParams() const;
+
+	class UMSMovementComponent* GetMSCharacterMovement() const { return MSMovementComponent; }
+
+protected:
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = Movement) class UMSMovementComponent* MSMovementComponent;
 };
